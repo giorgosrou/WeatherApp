@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
@@ -19,19 +20,26 @@ import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
-    val city: String = "Athens"
+    private var city: String = "Athens"
     val API: String = "1497dd20e8bdb334b5a1f8a77050bc76"
+    private lateinit var searchCity: SearchView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        searchCity()
+        fetchWeatherData()
+    }
+
+    private fun fetchWeatherData() {
         lifecycleScope.executeAsyncTask(onPreExecute = {
             findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
             findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.GONE
             findViewById<TextView>(R.id.errorText).visibility = View.GONE
         }, doInBackground = {
             var response: String?
-            var url = "https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$API"
+            val url = "https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$API"
             try{
                 response = URL(url).readText(Charsets.UTF_8)
             }
@@ -77,11 +85,10 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
             }
         })
-
     }
 
     // extension function:
-    fun <R> CoroutineScope.executeAsyncTask(
+    private fun <R> CoroutineScope.executeAsyncTask(
         onPreExecute: () -> Unit,
         doInBackground: () -> R,
         onPostExecute: (R) -> Unit
@@ -91,5 +98,22 @@ class MainActivity : AppCompatActivity() {
             doInBackground()
         }
         onPostExecute(result)
+    }
+
+    private fun searchCity() {
+        // Set up a listener to respond to search query changes
+        searchCity = findViewById(R.id.search_location)
+        searchCity.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                fetchWeatherData()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                //fetchData()
+                city = "$newText"
+                return true
+            }
+        })
     }
 }

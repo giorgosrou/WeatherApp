@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/main_background"
+    android:background="@drawable/amegakbackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -21,13 +21,26 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="wrap_content"
+
+            <android.widget.SearchView
+                android:id="@+id/search_location"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:queryHint="Enter the city name here"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:iconifiedByDefault="false"
                 android:layout_height="wrap_content"
-                android:text="Location"
-                android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:background="@color/cardview_light_background">
+            </android.widget.SearchView>
+
+            <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/updated_at"
@@ -108,7 +121,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+                    android:background="@color/cardview_dark_background"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="20dp">
@@ -127,7 +140,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sunrise"
-                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         tools:ignore="TextSizeCheck" />
 
                     <TextView
@@ -135,7 +150,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="06:40 AM"
-                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
                 </LinearLayout>
 
@@ -147,7 +164,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+                    android:background="@color/cardview_dark_background"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="20dp">
@@ -166,7 +183,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sunset"
-                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         tools:ignore="TextSizeCheck" />
 
                     <TextView
@@ -174,7 +193,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="06:40 AM"
-                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
                 </LinearLayout>
             </LinearLayout>
@@ -194,7 +215,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+                    android:background="@color/cardview_dark_background"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="20dp">
@@ -213,7 +234,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Humidity"
-                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         tools:ignore="TextSizeCheck" />
 
                     <TextView
@@ -221,7 +244,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="06:40 AM"
-                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
                 </LinearLayout>
 
@@ -233,7 +258,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+                    android:background="@color/cardview_dark_background"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="20dp">
@@ -252,7 +277,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Wind"
-                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
 
                     <TextView
@@ -260,7 +287,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="06:40 AM"
-                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
                         tools:ignore="TextSizeCheck" />
                 </LinearLayout>
             </LinearLayout>
